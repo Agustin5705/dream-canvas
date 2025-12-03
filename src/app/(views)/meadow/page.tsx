@@ -2,12 +2,11 @@
 
 import React from "react";
 
-// Using relative paths for robustness based on the (views)/meadow directory structure
-import DreamtMeadow from "../../../components/DreamtMeadow";
 import WobblyCard from "../../../components/WobblyCard";
+import Image from "next/image";
 
-// The path for the local placeholder asset
-const PLACEHOLDER_ASSET = "/assets/placeholder.png";
+const meadowHeight = "400px";
+const meadowWidth = "600px";
 
 export default function MeadowPage() {
   return (
@@ -24,39 +23,304 @@ export default function MeadowPage() {
       </WobblyCard>
 
       {/* The Dreamt Meadow Component (The Canvas) */}
-      <div className="w-full max-w-4xl">
-        <DreamtMeadow sceneName="Dreamt Meadow">
-          {/* Layer 1: Background Clouds (Will replace with your cloud assets) */}
-          <img
-            src={PLACEHOLDER_ASSET}
-            alt="Rolling Cloud Layer"
-            className="absolute top-[5%] left-0 w-[50%] h-auto opacity-70 animate-cloud-roll"
-          />
-          <img
-            src={PLACEHOLDER_ASSET}
-            alt="Rolling Cloud Layer 2"
-            className="absolute top-[10%] right-0 w-[40%] h-auto opacity-70 animate-cloud-roll"
+
+      <div
+        className="relative"
+        style={{ width: 600, height: 400, isolation: "isolate" }}
+      >
+        {/* VINES */}
+
+        <Image
+          src="/assets/vine4.png"
+          alt="Vine ornament"
+          width={50}
+          height={100}
+          className="absolute pointer-events-none"
+          style={{
+            top: "50%",
+            left: "-4%",
+            transform: "translateY(-50%)",
+            zIndex: 30,
+            width: "50px",
+            height: "450px",
+            objectFit: "fill",
+          }}
+        />
+        <Image
+          src="/assets/vine4.png"
+          alt="Vine ornament"
+          width={50}
+          height={100}
+          className="absolute pointer-events-none"
+          style={{
+            top: "50%",
+            left: "-4%",
+            transform: "translateY(-50%) scaleX(-1)",
+            zIndex: 30,
+            width: "50px",
+            height: "450px",
+            objectFit: "fill",
+          }}
+        />
+
+        <Image
+          src="/assets/vine4.png"
+          alt="Vine ornament"
+          width={50}
+          height={100}
+          className="absolute pointer-events-none"
+          style={{
+            top: "50%",
+            left: "95%",
+            transform: "translateY(-50%) scaleX(-1)",
+            zIndex: 30,
+            width: "50px",
+            height: "450px",
+            objectFit: "fill",
+          }}
+        />
+        <Image
+          src="/assets/vine4.png"
+          alt="Vine ornament"
+          width={50}
+          height={100}
+          className="absolute pointer-events-none"
+          style={{
+            top: "50%",
+            left: "95%",
+            transform: "translateY(-50%)",
+            zIndex: 30,
+            width: "50px",
+            height: "450px",
+            objectFit: "fill",
+          }}
+        />
+
+        <Image
+          src="/assets/vine1.png"
+          alt="Vine ornament"
+          width={50}
+          height={100}
+          className="absolute pointer-events-none"
+          style={{
+            top: "1%",
+            left: "44%",
+            transform: "translateY(-50%) rotate(90deg) scaleY(-1)",
+            zIndex: 30,
+            width: "70px",
+            height: "600px",
+            objectFit: "fill",
+          }}
+        />
+        <Image
+          src="/assets/vine1.png"
+          alt="Vine ornament"
+          width={50}
+          height={100}
+          className="absolute pointer-events-none"
+          style={{
+            top: "1%",
+            left: "44%",
+            transform: "translateY(-50%) rotate(90deg)",
+            zIndex: 30,
+            width: "70px",
+            height: "600px",
+            objectFit: "fill",
+          }}
+        />
+
+        <Image
+          src="/assets/vine1.png"
+          alt="Vine ornament"
+          width={50}
+          height={100}
+          className="absolute pointer-events-none"
+          style={{
+            top: "100%",
+            left: "44%",
+            transform: "translateY(-50%) rotate(90deg)",
+            zIndex: 30,
+            width: "70px",
+            height: "600px",
+            objectFit: "fill",
+          }}
+        />
+        <Image
+          src="/assets/vine1.png"
+          alt="Vine ornament"
+          width={50}
+          height={100}
+          className="absolute pointer-events-none"
+          style={{
+            top: "100%",
+            left: "44%",
+            transform: "translateY(-50%) rotate(90deg) scaleY(-1)",
+            zIndex: 30,
+            width: "70px",
+            height: "600px",
+            objectFit: "fill",
+          }}
+        />
+
+        <div
+          className="relative border-4 border-pencil-gray/10 bg-soft-clay/50 overflow-hidden shadow-pencil"
+          style={{
+            height: meadowHeight,
+            width: meadowWidth,
+          }}
+        >
+          {/* 1. MEADOW/HILL: Background layer */}
+          <Image
+            src="/assets/meadow4.png"
+            alt="Layered meadow background"
+            fill
+            sizes="600px"
+            className="object-cover"
+            style={{ zIndex: 10 }}
+            priority
           />
 
-          {/* Layer 2: Coiling Trees (Will replace with your tree assets) */}
-          <img
-            src={PLACEHOLDER_ASSET}
-            alt="Foreground Tree"
-            className="absolute bottom-0 left-[5%] w-[30%] h-[70%] transform-origin-bottom animate-tree-sway"
-          />
-          <img
-            src={PLACEHOLDER_ASSET}
-            alt="Background Tree"
-            className="absolute bottom-0 right-[20%] w-[20%] h-[50%] opacity-80 transform-origin-bottom animate-tree-sway"
-          />
-
-          {/* Layer 3: Foreground Meadow Base (Will replace with your meadow base asset) */}
-          <div className="absolute bottom-0 left-0 w-full h-[30%] bg-accent-light/50 border-t-8 border-accent-dark/30">
-            <p className="text-xs text-center pt-2 text-accent-dark font-sans opacity-70">
-              MEADOW BASE (Placeholder)
-            </p>
+          {/* 2. PERSON: Foreground element */}
+          <div
+            className="absolute animate-breathe-fast" // 👈 animation goes here
+            style={{
+              zIndex: 20,
+              bottom: "5%",
+              left: "40%",
+              transform: "translateX(-50%)", // positioning transform
+            }}
+          >
+            <Image
+              src="/assets/person4.png"
+              alt="Person standing on the hill"
+              height={240}
+              width={120}
+              className="opacity-50" // 👈 keep opacity here
+            />
           </div>
-        </DreamtMeadow>
+
+          {/* 3. TREES */}
+          <div
+            className="absolute"
+            style={{
+              zIndex: 15,
+              bottom: "40%",
+              left: "35%",
+              transform: "translateX(-50%)",
+            }}
+          >
+            <Image
+              src="/assets/tree6.png"
+              alt="Tree swaying in the wind"
+              height={70}
+              width={120}
+              className="opacity-90 animate-tree-sway origin-bottom"
+            />
+          </div>
+          <div
+            className="absolute"
+            style={{
+              zIndex: 14,
+              bottom: "30%",
+              left: "14%",
+              transform: "translateX(-50%)",
+            }}
+          >
+            <Image
+              src="/assets/tree15.png"
+              alt="Tree swaying in the wind"
+              height={50}
+              width={100}
+              className="opacity-90 animate-tree-sway origin-bottom"
+            />
+          </div>
+          <div
+            className="absolute"
+            style={{
+              zIndex: 16,
+              bottom: "35%",
+              left: "28%",
+              transform: "translateX(-50%)",
+            }}
+          >
+            <Image
+              src="/assets/tree8.png"
+              alt="Tree swaying in the wind"
+              height={120}
+              width={60}
+              className="opacity-90 animate-tree-sway origin-bottom"
+            />
+          </div>
+
+          {/* 4. BIRDS */}
+          <Image
+            src="/assets/birds1.png"
+            alt="Birds flying"
+            height={200}
+            width={150}
+            className="absolute opacity-50"
+            style={{
+              zIndex: 20,
+              bottom: "50%",
+              left: "60%",
+              transform: "translateX(-50%)",
+            }}
+          />
+
+          {/* 5. CLOUDS */}
+          <Image
+            src="/assets/clouds3.png"
+            alt="Cloud floating in the sky"
+            height={300}
+            width={150}
+            className="absolute animate-cloud-roll-short opacity-65"
+            style={{ zIndex: 10, top: "15%", left: "15%" }}
+          />
+          <Image
+            src="/assets/clouds3.png"
+            alt="Cloud floating in the sky"
+            height={200}
+            width={100}
+            className="absolute animate-cloud-roll-medium opacity-65"
+            style={{ zIndex: 10, top: "30%", left: "1%" }}
+          />
+          <Image
+            src="/assets/clouds3.png"
+            alt="Cloud floating in the sky"
+            height={200}
+            width={100}
+            className="absolute animate-cloud-roll-long opacity-70"
+            style={{ zIndex: 10, top: "15%", left: "10%" }}
+          />
+          <Image
+            src="/assets/clouds3.png"
+            alt="Cloud floating in the sky"
+            height={200}
+            width={100}
+            className="absolute animate-cloud-roll-short opacity-70"
+            style={{ zIndex: 10, top: "25%", left: "50%" }}
+          />
+          <Image
+            src="/assets/clouds3.png"
+            alt="Cloud floating in the sky"
+            height={200}
+            width={100}
+            className="absolute animate-cloud-roll-long opacity-70"
+            style={{ zIndex: 10, top: "13%", left: "45%" }}
+          />
+
+          {/* 6. SUN */}
+          <div className="opacity-60">
+            <Image
+              src="/assets/sun.png"
+              alt="The moon in the sky"
+              height={100}
+              width={100}
+              className="absolute w-32 h-auto animate-sun-radiate"
+              style={{ zIndex: 1, top: "10%", left: "70%" }}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

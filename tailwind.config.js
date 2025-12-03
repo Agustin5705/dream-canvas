@@ -28,10 +28,21 @@ const config = {
         // Simulates the soft, smudged appearance of a pencil drawing on paper
         'pencil': '4px 6px 12px -2px rgba(74, 74, 74, 0.3), -2px -2px 8px 0px rgba(74, 74, 74, 0.1)',
       },
+      transformOrigin: {
+        'bottom': 'center bottom', // Allows the use of 'origin-bottom' class
+      },
       keyframes: {
-        'cloud-roll': {
+        'cloud-roll-short': {
           '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(10%)' },
+          '100%': { transform: 'translateX(5vw)' }, // small drift
+        },
+        'cloud-roll-medium': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(10vw)' }, // medium drift
+        },
+        'cloud-roll-long': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(20vw)' }, // large drift
         },
         'tree-sway': {
           '0%, 100%': { transform: 'rotate(0.5deg)' },
@@ -41,12 +52,25 @@ const config = {
           '0%, 100%': { transform: 'scale(1.0)', opacity: '1' },
           '50%': { transform: 'scale(1.01)', opacity: '0.95' },
         },
+        'sun-radiate': {
+          '0%, 100%': {
+            transform: 'scale(1)',
+            filter: 'brightness(1)',
+          },
+          '50%': {
+            transform: 'scale(1.02)',
+            filter: 'brightness(1.2)',
+          },
+        },
       },
       animation: {
         'breathe-slow': 'breathe 8s ease-in-out infinite',
         'breathe-fast': 'breathe 4s ease-in-out infinite',
-        'cloud-roll': 'cloud-roll 60s linear infinite alternate',
-        'tree-sway': 'tree-sway 10s ease-in-out infinite alternate',
+        'cloud-roll-short': 'cloud-roll-short 30s ease-in-out infinite alternate',
+        'cloud-roll-medium': 'cloud-roll-medium 30s ease-in-out infinite alternate',
+        'cloud-roll-long': 'cloud-roll-long 30s ease-in-out infinite alternate',
+        'tree-sway': 'tree-sway 5s ease-in-out infinite alternate',
+        'sun-radiate': 'sun-radiate 6s ease-in-out infinite',
       },
     },
   },
