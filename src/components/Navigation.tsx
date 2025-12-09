@@ -21,7 +21,7 @@ const Navigation: React.FC = () => {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-10 bg-paper-bg/95 backdrop-blur-sm shadow-sm border-b border-pencil-gray/20">
+    <header className="top-0 left-0 right-0 z-100 relative bg-paper-bg/95 backdrop-blur-sm shadow-sm border-b border-pencil-gray/20">
       <div className="container mx-auto flex justify-between items-center py-4 px-6 max-w-7xl">
         {/* Site Title - Uses the custom sketch font aesthetic for the title */}
         <Link

@@ -42,7 +42,15 @@ const config = {
         },
         'cloud-roll-long': {
           '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(20vw)' }, // large drift
+          '100%': { transform: 'translateX(20vw)' },
+        },
+        'cloud-drift-left': {
+          '0%': {
+            transform: 'translateX(0vw)',
+          },
+          '100%': {
+            transform: 'translateX(-220vw)',
+          }
         },
         'tree-sway': {
           '0%, 100%': { transform: 'rotate(0.5deg)' },
@@ -51,6 +59,10 @@ const config = {
         breathe: {
           '0%, 100%': { transform: 'scale(1.0)', opacity: '1' },
           '50%': { transform: 'scale(1.01)', opacity: '0.95' },
+        },
+        twinkle: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0.3 },
         },
         'sun-radiate': {
           '0%, 100%': {
@@ -62,6 +74,12 @@ const config = {
             filter: 'brightness(1.2)',
           },
         },
+        'shooting-star': {
+          '0%': { opacity: '0', transform: 'translate(0,0) rotate(-45deg)' },
+          '10%': { opacity: '0.3', transform: 'translate(0,0) rotate(-45deg)' },
+          '100%': { opacity: '0', transform: 'translate(-400px,500px) rotate(-45deg)' },
+        },
+
       },
       animation: {
         'breathe-slow': 'breathe 8s ease-in-out infinite',
@@ -71,6 +89,15 @@ const config = {
         'cloud-roll-long': 'cloud-roll-long 30s ease-in-out infinite alternate',
         'tree-sway': 'tree-sway 5s ease-in-out infinite alternate',
         'sun-radiate': 'sun-radiate 6s ease-in-out infinite',
+        'twinkle': 'twinkle 2s ease-in-out infinite',
+        'cloud-left-quick': 'cloud-drift-left 60s linear infinite',
+        'cloud-left-very-quick': 'cloud-drift-left 50s linear infinite',
+        'cloud-left-medium': 'cloud-drift-left 70s linear infinite',
+        'cloud-left-slow': 'cloud-drift-left 80s linear infinite',
+        'cloud-left-very-slow': 'cloud-drift-left 100s linear infinite',
+        'shooting-star': 'shooting-star 5s ease-in-out forwards',
+        'shooting-star-slow': 'shooting-star 6s ease-in-out forwards',
+        'shooting-star-fast': 'shooting-star 4s ease-in-out forwards',
       },
     },
   },

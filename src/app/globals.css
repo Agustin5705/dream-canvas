@@ -15,3 +15,18 @@ body {
   transform: skew(-0.5deg);
   display: inline-block;
 }
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, white, transparent);
+  transform: rotate(-45deg);
+}
