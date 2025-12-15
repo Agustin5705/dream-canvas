@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useState, useMemo } from "react";
-import { StarField } from "./StarField";
-import { generateStars } from "./generateStars";
-import { PlanetField } from "./PlanetField";
-import { generatePlanets } from "./generatePlanets";
-import { ShootingStar } from "./ShootingStar";
+import { StarField } from "@/components/stars/StarField";
+import { generateStars } from "@/components/stars/generateStars";
+import { PlanetField } from "@/components/planets/PlanetField";
+import { generatePlanets } from "@/components/planets/generatePlanets";
+import { ShootingStar } from "@/components/shooting stars/ShootingStar";
 
 function getTimeOfDay(
   hour: number

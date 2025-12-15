@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import {
   generateShootingStar,
   ShootingStar as ShootingStarType,
-} from "@/app/(views)/dayindayout/generateShootingStar";
+} from "@/components/shooting stars/generateShootingStar";
 
 type ShootingStarProps = {
   className?: string; // allow external animation classes

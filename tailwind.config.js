@@ -79,6 +79,10 @@ const config = {
           '10%': { opacity: '0.3', transform: 'translate(0,0) rotate(-45deg)' },
           '100%': { opacity: '0', transform: 'translate(-400px,500px) rotate(-45deg)' },
         },
+        'rainFall': {
+          '0%': { transform: 'translateY(-101vh)' },
+          '100%': { transform: 'translateY(101vh)' }
+        }
 
       },
       animation: {
@@ -98,6 +102,7 @@ const config = {
         'shooting-star': 'shooting-star 5s ease-in-out forwards',
         'shooting-star-slow': 'shooting-star 6s ease-in-out forwards',
         'shooting-star-fast': 'shooting-star 4s ease-in-out forwards',
+        'rain-animation': 'rainFall 1s linear infinite',
       },
     },
   },

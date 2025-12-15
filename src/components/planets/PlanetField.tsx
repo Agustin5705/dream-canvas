@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import type { Planet } from "@/app/(views)/dayindayout/generatePlanets";
+import type { Planet } from "@/components/planets/generatePlanets";
 
 type Props = {
   planets: Planet[];

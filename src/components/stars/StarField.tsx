@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import type { Star } from "@/app/(views)/dayindayout/generateStars";
+import type { Star } from "@/components/stars/generateStars";
 
 type Props = {
   stars: Star[];
