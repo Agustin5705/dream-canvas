@@ -10,6 +10,8 @@ const navItems = [
   { name: "Component Library", href: "/components" },
   { name: "Gallery & Assets", href: "/gallery" },
   { name: "Dreamt Meadow", href: "/meadow" },
+  { name: "Day In Day Out", href: "/dayindayout" },
+  { name: "Test", href: "/test" },
 ];
 
 /**

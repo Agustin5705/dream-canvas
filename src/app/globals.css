@@ -35,6 +35,7 @@ body {
   position: absolute;
   width: 2px;
   height: 50px;
+  top: -50px;
   border-radius: 9999px;
   background: linear-gradient(
     to top,
