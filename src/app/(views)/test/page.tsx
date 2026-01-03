@@ -11,7 +11,7 @@ export default function TestPage() {
   const [rainEnabled, setRainEnabled] = useState(true);
 
   return (
-    <div className="relative w-full h-screen bg-black overflow-hidden">
+    <div className="relative w-full aspect-[16/9] bg-black overflow-hidden">
       {/* Stars */}
       <div className="absolute inset-0 z-10">
         <StarField
