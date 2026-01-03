@@ -8,7 +8,6 @@ import { useState } from "react";
 // Define the navigation items for the site structure
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Component Library", href: "/components" },
   { name: "Gallery & Assets", href: "/gallery" },
   { name: "Dreamt Meadow", href: "/meadow" },
   { name: "Day In Day Out", href: "/dayindayout" },

@@ -12,8 +12,6 @@ export default function TestPage() {
 
   return (
     <div className="relative w-full aspect-[16/9] bg-black overflow-hidden">
-      <div className="bg-red-500 sm:bg-blue-500 h-10 w-10"></div>
-
       {/* Stars */}
       <div className="absolute inset-0 z-10">
         <StarField
