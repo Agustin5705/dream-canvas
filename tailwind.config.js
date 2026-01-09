@@ -33,6 +33,11 @@ const config = {
         'bottom': 'center bottom', // Allows the use of 'origin-bottom' class
       },
       keyframes: {
+        'slide': {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' }
+        },
         'cloud-roll-short': {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(5vw)' }, // small drift
@@ -110,6 +115,8 @@ const config = {
         'rain-animation-fast': 'rainFall 0.9s linear infinite',
         'rain-animation-very-fast': 'rainFall 0.8s linear infinite',
         'rain-animation-super-fast': 'rainFall 0.7s linear infinite',
+        'slide': 'slide 5s linear infinite',
+        'slow-slide': 'slide 10s linear infinite'
       },
     },
   },
