@@ -88,6 +88,10 @@ const config = {
         'rainFall': {
           '0%': { transform: 'translateY(-101vh)' },
           '100%': { transform: 'translateY(101vh)' }
+        },
+        'snowfall': {
+          '0%': { transform: 'translateY(-101vh)' },
+          '100%': { transform: 'translateY(101vh)' }
         }
 
       },
@@ -116,7 +120,12 @@ const config = {
         'rain-animation-very-fast': 'rainFall 0.8s linear infinite',
         'rain-animation-super-fast': 'rainFall 0.7s linear infinite',
         'slide': 'slide 5s linear infinite',
-        'slow-slide': 'slide 10s linear infinite'
+        'slow-slide': 'slide 10s linear infinite',
+        'snowfallslow': 'snowfall 6s linear infinite',
+        'snowfall': 'snowfall 5s linear infinite',
+        'snowfallfast': 'snowfall 4s linear infinite',
+        'snowfallveryslow': 'snowfall 7s linear infinite',
+        'snowfallsuperslow': 'snowfall 8s linear infinite',
       },
     },
   },

@@ -11,6 +11,7 @@ const navItems = [
   { name: "Gallery & Assets", href: "/gallery" },
   { name: "Dreamt Meadow", href: "/meadow" },
   { name: "Day In Day Out", href: "/dayindayout" },
+  { name: "Rainy", href: "/rainy" },
   { name: "Test", href: "/test" },
 ];
 

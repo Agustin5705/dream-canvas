@@ -4,7 +4,7 @@ import Image from "next/image";
 import { StarField } from "@/components/stars/StarField";
 import { generateStars } from "@/components/stars/generateStars";
 import { ShootingStar } from "@/components/shooting stars/ShootingStar";
-import { RainCurtain1, RainCurtain2 } from "@/components/rain/rainCurtain";
+import { SnowCurtain1, SnowCurtain2 } from "@/components/snow/snowCurtain";
 
 export default function TestPage() {
   return (
@@ -22,8 +22,8 @@ export default function TestPage() {
 
       {/* Rain overlay */}
       <div className="absolute inset-0 z-30 overflow-hidden">
-        <RainCurtain1 />
-        <RainCurtain2 />
+        <SnowCurtain1 />
+        <SnowCurtain2 />
       </div>
 
       {/* Meadow background */}
@@ -34,12 +34,12 @@ export default function TestPage() {
         className="object-bottom object-cover z-5"
       />
 
-      {/* Tree pinned to bottom */}
+      {/* Person */}
       <Image
-        src="/assets/tree15.png"
-        alt="Tree"
-        width={100}
-        height={100}
+        src="/assets/person2.png"
+        alt="Person"
+        width={60}
+        height={60}
         className="absolute bottom-[40vh] left-[45vw] z-50"
       />
 
