@@ -12,6 +12,7 @@ const navItems = [
   { name: "Dreamt Meadow", href: "/meadow" },
   { name: "Day In Day Out", href: "/dayindayout" },
   { name: "Rainy", href: "/rainy" },
+  { name: "Snowed In", href: "/snowedin" },
   { name: "Test", href: "/test" },
 ];
 
