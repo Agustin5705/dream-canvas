@@ -1,65 +1,52 @@
 "use client";
-
-import Image from "next/image";
-import { StarField } from "@/components/stars/StarField";
-import { generateStars } from "@/components/stars/generateStars";
-import { ShootingStar } from "@/components/shooting stars/ShootingStar";
-import { SnowCurtain1, SnowCurtain2 } from "@/components/snow/snowCurtain";
+import { useWeather } from "@/services/useWeather";
 
 export default function TestPage() {
+  const weather = useWeather("Montevideo");
+
+  if (!weather) return <div>Loading...</div>;
+
   return (
-    <div className="relative w-screen h-screen bg-black overflow-hidden">
-      {/* Stars background */}
-      <div className="absolute inset-0 z-10">
-        <StarField
-          stars={generateStars(500)}
-          className="absolute inset-0 animate-fade-in"
-        />
-      </div>
+    <div className="flex flex-col items-center justify-center h-screen text-white bg-black">
+      <h1 className="text-4xl">Current Weather: {weather.main}</h1>
 
-      {/* Shooting Star */}
-      <ShootingStar className="animate-shooting-star z-20" />
+      {/* ☀️ Sunny */}
+      {weather.main === "Clear" && (
+        <div className="text-yellow-400 text-2xl">☀️ It is sunny</div>
+      )}
 
-      {/* Rain overlay */}
-      <div className="absolute inset-0 z-30 overflow-hidden">
-        <SnowCurtain1 />
-        <SnowCurtain2 />
-      </div>
+      {/* ☁️ Clouds */}
+      {weather.main === "Clouds" && (
+        <div className="text-gray-300 text-2xl">☁️ Cloudy skies</div>
+      )}
 
-      {/* Meadow background */}
-      <Image
-        src="/assets/meadow3.png"
-        alt="Meadow"
-        fill
-        className="object-bottom object-cover z-5"
-      />
+      {/* 🌧️ Rain */}
+      {weather.main === "Rain" && (
+        <div className="text-blue-400 text-2xl">🌧️ Rain falling</div>
+      )}
 
-      {/* Person */}
-      <Image
-        src="/assets/person2.png"
-        alt="Person"
-        width={60}
-        height={60}
-        className="absolute bottom-[40vh] left-[45vw] z-50"
-      />
+      {/* ❄️ Snow */}
+      {weather.main === "Snow" && (
+        <div className="text-white text-2xl">❄️ Snowing</div>
+      )}
 
-      {/* Moon */}
-      <Image
-        src="/assets/moon.png"
-        alt="Moon"
-        width={150}
-        height={150}
-        className="absolute top-[5vh] left-[10vw] opacity-90 brightness-75 z-40 animate-breathe-slow"
-      />
+      {/* 🌫️ Fog / Mist */}
+      {(weather.main === "Fog" || weather.main === "Mist") && (
+        <div className="text-gray-400 text-2xl">🌫️ Foggy</div>
+      )}
 
-      {/* Cloud pinned near top */}
-      <Image
-        src="/assets/clouds3.png"
-        alt="Cloud"
-        width={250}
-        height={250}
-        className="absolute top-[5vh] left-[40vw] opacity-90 brightness-75 z-40 animate-cloud-roll-short"
-      />
+      {/* 🌬️ Wind thresholds */}
+      {weather.windSpeed < 2 && <p>Wind: calm</p>}
+      {weather.windSpeed >= 2 && weather.windSpeed < 6 && (
+        <p>Wind: short cloud roll</p>
+      )}
+      {weather.windSpeed >= 6 && <p>Wind: long cloud roll</p>}
+
+      {/* 🕒 Show refresh time from the hook */}
+
+      <p className="mt-4 text-lg">
+        Weather last fetched at: {weather.fetchedAt.toLocaleTimeString()}
+      </p>
     </div>
   );
 }
