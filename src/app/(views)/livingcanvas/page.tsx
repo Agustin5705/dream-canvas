@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { SkyGradient } from "@/components/sky gradient/skygradient";
 import { coordinates } from "@/components/coordinates/coordinates";
+import { NightSkyStars } from "@/components/livingcomponents/starfield";
+import { ShootingstarsCanvas } from "@/components/livingcomponents/shootingstars";
+import MeadowTestModule from "@/components/livingcomponents/rng";
 
 export default function SkyView() {
   const [currentHour, setCurrentHour] = useState(new Date().getHours());
@@ -34,6 +37,15 @@ export default function SkyView() {
           left: coordinates[currentHour].left,
         }}
       />
+
+      {/* Starsfields */}
+      <NightSkyStars currentHour={currentHour} />
+
+      {/* Shootingstars */}
+      <ShootingstarsCanvas currentHour={currentHour} />
+
+      {/* RNG test */}
+      <MeadowTestModule />
 
       {/* Debug: show current hour */}
       <p className="absolute bottom-4 left-4 text-blue-800">
