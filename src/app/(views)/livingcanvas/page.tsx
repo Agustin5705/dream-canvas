@@ -7,8 +7,11 @@ import { coordinates } from "@/components/coordinates/coordinates";
 import { NightSkyStars } from "@/components/livingcomponents/starfield";
 import { ShootingstarsCanvas } from "@/components/livingcomponents/shootingstars";
 import MeadowTestModule from "@/components/livingcomponents/rng";
+import { useCity } from "@/app/context/CityContext";
+import WeatherView from "@/components/WeatherView";
 
 export default function SkyView() {
+  const { city } = useCity();
   const [currentHour, setCurrentHour] = useState(new Date().getHours());
 
   // Refresh hour every minute
@@ -47,10 +50,14 @@ export default function SkyView() {
       {/* RNG test */}
       <MeadowTestModule />
 
-      {/* Debug: show current hour */}
+      {/* Debug */}
       <p className="absolute bottom-4 left-4 text-blue-800">
         Current hour: {currentHour}
+        City: {city}
       </p>
+      <div className="absolute bottom-20 left-4 text-blue-800">
+        <WeatherView />
+      </div>
     </div>
   );
 }

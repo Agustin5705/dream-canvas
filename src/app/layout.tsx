@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Navigation from "@/components/Navigation";
+import { CityProvider } from "./context/CityContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,15 +21,17 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-paper-bg min-h-screen flex flex-col`}
       >
-        <Navigation />
+        <CityProvider>
+          <Navigation />
 
-        {/* main is the flex-grow area — it must be flex-1 and allow its children to shrink.
+          {/* main is the flex-grow area — it must be flex-1 and allow its children to shrink.
             Using min-h-0 on the immediate flex child prevents overflow from creating extra gaps. */}
-        <main className="flex-1 flex flex-col min-h-0">{children}</main>
+          <main className="flex-1 flex flex-col min-h-0">{children}</main>
 
-        <footer className="w-full text-center py-4 text-pencil-gray/50 text-sm border-t border-pencil-gray/10">
-          © 2024 Dream Canvas Project. Pure Frontend Focus.
-        </footer>
+          <footer className="w-full text-center py-4 text-pencil-gray/50 text-sm border-t border-pencil-gray/10">
+            © 2024 Dream Canvas Project. Pure Frontend Focus.
+          </footer>
+        </CityProvider>
       </body>
     </html>
   );

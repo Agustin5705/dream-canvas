@@ -4,6 +4,7 @@
 import WobblyCard from "@/components/WobblyCard";
 import WobblyButton from "@/components/WobblyButton";
 import GridItem from "@/components/GridItem";
+import SearchBar from "@/components/SearchBar";
 
 export default function Home() {
   // Local placeholder image path (assuming your fix makes this work)
@@ -56,6 +57,10 @@ export default function Home() {
           </div>
         </div>
       </WobblyCard>
+
+      <div className="flex justify-center mb-8">
+        <SearchBar />
+      </div>
 
       {/* 2. PROJECT HIGHLIGHTS */}
       <div className="w-full max-w-7xl mb-16">
