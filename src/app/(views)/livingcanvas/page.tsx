@@ -8,7 +8,6 @@ import { NightSkyStars } from "@/components/livingcomponents/starfield";
 import { ShootingstarsCanvas } from "@/components/livingcomponents/shootingstars";
 import MeadowTestModule from "@/components/livingcomponents/rng";
 import { useCity } from "@/app/context/CityContext";
-import WeatherView from "@/components/WeatherView";
 import { useWeather } from "@/services/useWeather";
 import { RainCurtain1, RainCurtain2 } from "@/components/rain/rainCurtain";
 import {
@@ -22,11 +21,15 @@ import {
   WildClouds3,
 } from "@/components/clouds/Clouds";
 import { SnowCurtain1, SnowCurtain2 } from "@/components/snow/snowCurtain";
+import FogEffect from "@/components/fog/FogEffect";
+import { PlanetField } from "@/components/planets/PlanetField";
+import { generatePlanets } from "@/components/planets/generatePlanets";
 
 export default function SkyView() {
   const { city } = useCity();
   const weather = useWeather(city);
   const [currentHour, setCurrentHour] = useState(new Date().getHours());
+  const planets = generatePlanets();
 
   // Refresh hour every minute
   useEffect(() => {
@@ -35,6 +38,17 @@ export default function SkyView() {
     }, 60 * 1000);
     return () => clearInterval(timer);
   }, []);
+
+  console.log("Weather main:", weather?.main);
+
+  // Error catcher
+  if (!weather || !weather.main) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center text-red-600">
+        <p>Weather data unavailable for {city}. Please try another city.</p>
+      </div>
+    );
+  }
 
   // Daytime: 6–22, Nighttime: 22–6
   const isDay = currentHour >= 6 && currentHour < 22;
@@ -65,17 +79,16 @@ export default function SkyView() {
       {/* Conditional weather rendering */}
 
       {/* Rain */}
-      {weather?.main === "Rain" && (
-        <div className="absolute inset-0 pointer-events-none">
+      {(weather?.main === "Rain" || weather?.rainVolume > 0) && (
+        <div className="absolute inset-0 pointer-events-none z-50">
           <RainCurtain1 />
           <RainCurtain2 />
         </div>
       )}
 
       {/* Clouds */}
-      {weather?.main === "Clouds" && (
+      {weather?.clouds > 0 && (
         <>
-          {/* Coverage groups */}
           <div
             className={`absolute inset-0 ${
               weather.windSpeed < 2
@@ -92,31 +105,35 @@ export default function SkyView() {
             {weather.clouds > 80 && <Clouds5 />}
           </div>
 
-          {/* Wildclouds */}
           {weather.clouds >= 15 && <WildClouds1 />}
           {weather.clouds >= 30 && <WildClouds2 />}
           {weather.clouds >= 45 && <WildClouds3 />}
         </>
       )}
 
-      {weather?.main === "Snow" && (
+      {(weather?.main === "Snow" || weather?.snowVolume > 0) && (
         <div className="absolute inset-0 pointer-events-none">
           <SnowCurtain1 />
           <SnowCurtain2 />
         </div>
       )}
 
-      {/* RNG test */}
-      <MeadowTestModule />
+      {["Fog", "Mist", "Haze"].includes(weather?.main) && (
+        <div className="absolute inset-0 pointer-events-none">
+          <FogEffect />
+        </div>
+      )}
 
-      {/* Debug */}
-      <p className="absolute bottom-4 left-4 text-blue-800">
-        Current hour: {currentHour}
-        City: {city}
-      </p>
-      <div className="absolute bottom-20 left-4 text-blue-800">
-        <WeatherView />
-      </div>
+      {/* Planets Layer */}
+      {(currentHour >= 22 || currentHour < 6) && (
+        <PlanetField
+          planets={planets}
+          className="absolute inset-0 z-5 animate-twinkle"
+        />
+      )}
+
+      {/* RNG test */}
+      {weather && <MeadowTestModule windSpeed={weather.windSpeed} />}
     </div>
   );
 }

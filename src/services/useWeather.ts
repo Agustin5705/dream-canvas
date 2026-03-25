@@ -5,6 +5,8 @@ export type WeatherData = {
   description: string;
   windSpeed: number;
   clouds: number;
+  rainVolume: number;
+  snowVolume: number;
   fetchedAt: Date;
 };
 
@@ -28,6 +30,8 @@ export function useWeather(city: string) {
         description: json.weather[0].description,
         windSpeed: json.wind.speed,
         clouds: json.clouds.all,
+        rainVolume: json.rain?.["1h"] ?? json.rain?.["3h"] ?? 0,
+        snowVolume: json.snow?.["1h"] ?? json.snow?.["3h"] ?? 0,
         fetchedAt: new Date(),
       });
     }

@@ -43,6 +43,7 @@ body {
     rgba(255, 255, 255, 0)
   );
   opacity: 0.8;
+  box-shadow: 0 0 2px rgba(0, 180, 255, 0.5);
 }
 
 .snowflake {

@@ -9,7 +9,7 @@ export function Clouds1() {
         alt="Cloud"
         width={250}
         height={125}
-        className="absolute top-[10%] left-[5%] opacity-60"
+        className="absolute top-[10%] left-[-15%] opacity-60"
       />
       <Image
         src="/assets/clouds3.png"
@@ -44,7 +44,7 @@ export function Clouds2() {
         alt="Cloud"
         width={270}
         height={130}
-        className="absolute top-[15%] left-[15%] opacity-60"
+        className="absolute top-[15%] left-[-25%] opacity-60"
       />
       <Image
         src="/assets/clouds3.png"
@@ -72,7 +72,7 @@ export function Clouds3() {
         alt="Cloud"
         width={390}
         height={195}
-        className="absolute top-[10%] left-[5%] opacity-60"
+        className="absolute top-[10%] left-[-30%] opacity-60"
       />
       <Image
         src="/assets/clouds3.png"
@@ -86,7 +86,7 @@ export function Clouds3() {
         alt="Cloud"
         width={300}
         height={150}
-        className="absolute top-[10%] left-[22%] opacity-60"
+        className="absolute top-[10%] left-[-12%] opacity-60"
       />
       <Image
         src="/assets/clouds3.png"
@@ -121,7 +121,7 @@ export function Clouds4() {
         alt="Cloud"
         width={450}
         height={225}
-        className="absolute top-[-10%] left-[-1%] opacity-60"
+        className="absolute top-[-10%] left-[-5%] opacity-60"
       />
       <Image
         src="/assets/clouds3.png"

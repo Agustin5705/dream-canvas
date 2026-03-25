@@ -9,6 +9,7 @@ import WobblyCard from "@/components/WobblyCard";
 import WobblyButton from "@/components/WobblyButton";
 import GridItem from "@/components/GridItem";
 import PictureFrame from "@/components/PictureFrame";
+import { motion } from "framer-motion";
 
 // Data - FIXED: Using absolute paths for robustness
 import { MOCK_GALLERY_DATA, GalleryItem } from "@/data/gallery-data";
@@ -59,25 +60,31 @@ export default function GalleryPage() {
       {/* Gallery Grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
         {filteredItems.map((item: GalleryItem) => (
-          <GridItem key={item.id} title={item.title}>
-            {/* --- Image and Frame --- */}
-            <div className="flex justify-center items-center mb-3">
-              <PictureFrame className="w-full max-w-xs">
-                <img
-                  src={item.imageUrl}
-                  alt={item.altText}
-                  width={300}
-                  height={300}
-                  className="w-full h-full object-cover"
-                />
-              </PictureFrame>
-            </div>
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0, y: 100, x: 75, scale: 0.5 }}
+            whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+            transition={{ duration: 1.0 }}
+            viewport={{ once: true }}
+          >
+            <GridItem title={item.title}>
+              {/* --- Image and Frame --- */}
+              <div className="flex justify-center items-center mb-3">
+                <PictureFrame className="w-full max-w-xs">
+                  <img
+                    src={item.imageUrl}
+                    alt={item.altText}
+                    className="w-full h-auto object-contain max-h-64"
+                  />
+                </PictureFrame>
+              </div>
 
-            {/* --- Description --- */}
-            <p className="text-pencil-gray/70 text-sm italic mt-2">
-              {item.description}
-            </p>
-          </GridItem>
+              {/* --- Description --- */}
+              <p className="text-pencil-gray/70 text-sm italic mt-2">
+                {item.description}
+              </p>
+            </GridItem>
+          </motion.div>
         ))}
       </div>
 
