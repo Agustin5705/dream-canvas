@@ -60,3 +60,14 @@ body {
   );
   opacity: 0.9;
 }
+
+.star-button {
+  transition: box-shadow 1.5s ease-in-out;
+}
+
+.star-button:hover {
+  box-shadow:
+    0 0 10px rgba(109, 104, 113, 0.7),
+    0 0 20px rgba(52, 54, 87, 0.8),
+    0 0 30px rgba(74, 25, 88, 0.9);
+}

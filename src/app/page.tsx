@@ -5,10 +5,22 @@ import WobblyCard from "@/components/WobblyCard";
 import WobblyButton from "@/components/WobblyButton";
 import GridItem from "@/components/GridItem";
 import SearchBar from "@/components/SearchBar";
+import { ShowcaseCard } from "@/components/showcase/ShowcaseCard";
+import { SnowCurtain1, SnowCurtain2 } from "@/components/snow/snowCurtain";
+import { RainCurtain1, RainCurtain2 } from "@/components/rain/rainCurtain";
+import { useState, useEffect } from "react";
+import { SkyGradient } from "@/components/sky gradient/skygradient";
+import { StarField } from "@/components/stars/StarField";
+import { generateStars } from "@/components/stars/generateStars";
+import { PlanetField } from "@/components/planets/PlanetField";
+import { generatePlanets } from "@/components/planets/generatePlanets";
+import { useMemo } from "react";
+import Image from "next/image";
 
 export default function Home() {
   // Local placeholder image path (assuming your fix makes this work)
   const LOCAL_PLACEHOLDER = "/assets/placeholder.png";
+  const [currentHour, setCurrentHour] = useState(new Date().getHours());
 
   const highlightData = [
     {
@@ -27,6 +39,15 @@ export default function Home() {
         "Color system derived from nature: soft clays, deep pencil grays, and parchment paper.",
     },
   ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentHour(new Date().getHours());
+    }, 60 * 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const planets = useMemo(() => generatePlanets(), []);
 
   return (
     // The main container wrapper from layout.tsx centers content.
@@ -60,6 +81,120 @@ export default function Home() {
 
       <div className="flex justify-center mb-8">
         <SearchBar />
+      </div>
+
+      {/* Showcases */}
+
+      <div className="flex justify-between items-start w-full px-8">
+        <div className="flex flex-col gap-6">
+          <ShowcaseCard
+            title="Rain"
+            description="Vertical streaks with randomized speed and opacity."
+            href="/rainshowcase"
+            preview={
+              <div className="w-full h-full relative">
+                <RainCurtain1 />
+                <RainCurtain2 />
+              </div>
+            }
+          />
+
+          <ShowcaseCard
+            title="Sky Gradient"
+            description="24 gradients that map to each hour of the day in real time."
+            href="/skygradientshowcase"
+            preview={
+              <div className="w-full h-full relative">
+                <SkyGradient hour={currentHour} />
+              </div>
+            }
+          />
+
+          <ShowcaseCard
+            title="Snow"
+            description="Achieved with layered particles and randomized fall speeds."
+            href="/snowedin"
+            preview={
+              <div className="w-full h-full relative">
+                <SnowCurtain1 />
+                <SnowCurtain2 />
+              </div>
+            }
+          />
+
+          <ShowcaseCard
+            title="Stars"
+            description="Starfield achieved with tailwind styles and randomization."
+            href="/stars"
+            preview={
+              <div className="w-full h-full relative">
+                <StarField stars={generateStars(100)} />
+                <PlanetField planets={planets} />
+              </div>
+            }
+          />
+
+          <ShowcaseCard
+            title="Wind"
+            description="Wind effect achieved by moving assets tied to the wind speed that the API passes as a prop."
+            href="/wind"
+            preview={
+              <div className="w-full h-full relative">
+                {/* Clouds */}
+                <div className="absolute top-4 left-1/4 animate-cloud-roll-short">
+                  <Image
+                    src="/assets/clouds3.png"
+                    alt="Cloud"
+                    width={70}
+                    height={35}
+                    className="opacity-60"
+                  />
+                </div>
+                <div className="absolute top-10 right-1/4 animate-cloud-roll-medium">
+                  <Image
+                    src="/assets/clouds3.png"
+                    alt="Cloud"
+                    width={60}
+                    height={30}
+                    className="opacity-60"
+                  />
+                </div>
+                <div className="absolute top-2 left-1/2 animate-cloud-roll-long">
+                  <Image
+                    src="/assets/clouds3.png"
+                    alt="Cloud"
+                    width={50}
+                    height={25}
+                    className="opacity-60"
+                  />
+                </div>
+
+                {/* Trees */}
+                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 animate-tree-sway">
+                  <Image
+                    src="/assets/living/tree7.png"
+                    alt="Tree"
+                    width={50}
+                    height={25}
+                  />
+                </div>
+
+                <div className="absolute -bottom-6 left-1/3 -translate-x-1/2 animate-tree-sway">
+                  <Image
+                    src="/assets/living/tree8.png"
+                    alt="Tree"
+                    width={50}
+                    height={25}
+                  />
+                </div>
+              </div>
+            }
+          />
+        </div>
+        <div className="w-64 bg-soft-clay rounded-lg p-4">
+          <h3 className="font-bold mb-2">Sidebar</h3>
+          <p>Content goes here.</p>
+        </div>
       </div>
 
       {/* 2. PROJECT HIGHLIGHTS */}

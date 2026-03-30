@@ -20,7 +20,7 @@ export default function TestPage() {
       {/* Shooting Star */}
       <ShootingStar className="animate-shooting-star z-20" />
 
-      {/* Rain overlay */}
+      {/* Snow overlay */}
       <div className="absolute inset-0 z-30 overflow-hidden">
         <SnowCurtain1 />
         <SnowCurtain2 />
