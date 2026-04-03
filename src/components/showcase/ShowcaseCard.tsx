@@ -14,7 +14,7 @@ export function ShowcaseCard({
   preview,
 }: ShowcaseCardProps) {
   return (
-    <div className="w-[36rem] bg-soft-clay text-gray-800 rounded-lg p-6 hover:shadow-lg transition cursor-pointer m-2">
+    <div className="w-[36rem] bg-black/80 text-gray-300 rounded-3xl p-6 hover:shadow-lg transition cursor-pointer m-2">
       {/* Title on top */}
       <h2 className="text-xl font-bold mb-4">{title}</h2>
 

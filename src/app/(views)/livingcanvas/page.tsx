@@ -39,10 +39,45 @@ export default function SkyView() {
     return () => clearInterval(timer);
   }, []);
 
-  console.log("Weather main:", weather?.main);
+  // Loading screen
+  if (!weather) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center border rounded-3xl bg-gradient-to-br from-soft-clay to-stone-800">
+        {/* Center content: text + person side by side */}
+        <div className="relative flex flex-row items-center gap-4">
+          <p className="text-lg font-sketch">Your view is loading</p>
+          <Image
+            src="/assets/person3.png"
+            alt="Person"
+            height={100}
+            width={50}
+            className="opacity-80"
+          />
+
+          {/* Sun near top-left of this block */}
+          <Image
+            src="/assets/sun.png"
+            alt="Sun"
+            width={60}
+            height={60}
+            className="absolute -top-12 -left-12 opacity-80 animate-breathe-fast"
+          />
+
+          {/* Moon near bottom-right of this block */}
+          <Image
+            src="/assets/moon.png"
+            alt="Moon"
+            width={50}
+            height={50}
+            className="absolute -top-12 -right-12 opacity-80 animate-breathe-fast"
+          />
+        </div>
+      </div>
+    );
+  }
 
   // Error catcher
-  if (!weather || !weather.main) {
+  if (!weather.main) {
     return (
       <div className="absolute inset-0 flex items-center justify-center text-red-600">
         <p>Weather data unavailable for {city}. Please try another city.</p>

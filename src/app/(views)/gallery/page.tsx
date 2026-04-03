@@ -10,6 +10,7 @@ import WobblyButton from "@/components/WobblyButton";
 import GridItem from "@/components/GridItem";
 import PictureFrame from "@/components/PictureFrame";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // Data - FIXED: Using absolute paths for robustness
 import { MOCK_GALLERY_DATA, GalleryItem } from "@/data/gallery-data";
@@ -17,9 +18,6 @@ import { MOCK_GALLERY_DATA, GalleryItem } from "@/data/gallery-data";
 // Define the available filter categories
 const categories = ["All", "sketch", "ui", "concept"] as const;
 type Category = (typeof categories)[number];
-
-// Placeholder for your vine frame asset (Change this to your actual path!)
-const FRAME_ASSET_PATH = "/assets/vine-frame.png";
 
 export default function GalleryPage() {
   const [activeFilter, setActiveFilter] = useState<Category>("All");
@@ -34,7 +32,7 @@ export default function GalleryPage() {
   return (
     <div className="py-10">
       {/* Title Card */}
-      <WobblyCard className="mx-auto w-full max-w-6xl mb-10">
+      <WobblyCard className="mx-auto w-full max-w-6xl mb-10 gradient bg-gradient-to-tr from-soft-clay to-stone-500">
         <h1 className="font-sketch text-accent-dark text-4xl sm:text-5xl text-center mb-2">
           The Design Gallery
         </h1>
@@ -48,6 +46,7 @@ export default function GalleryPage() {
       <div className="flex justify-center flex-wrap gap-4 mb-12 max-w-6xl mx-auto">
         {categories.map((category) => (
           <WobblyButton
+            className="gradient bg-gradient-to-t from-soft-clay to-stone-400"
             key={category}
             variant={activeFilter === category ? "primary" : "secondary"}
             onClick={() => setActiveFilter(category)}
@@ -70,11 +69,13 @@ export default function GalleryPage() {
             <GridItem title={item.title}>
               {/* --- Image and Frame --- */}
               <div className="flex justify-center items-center mb-3">
-                <PictureFrame className="w-full max-w-xs">
-                  <img
+                <PictureFrame className="w-full max-w-xs bg-gradient-to-tr from-soft-clay to-stone-400 rounded-xl shadow-lg p-2">
+                  <Image
                     src={item.imageUrl}
                     alt={item.altText}
-                    className="w-full h-auto object-contain max-h-64"
+                    width={256}
+                    height={256}
+                    className="w-full h-auto object-contain max-h-64 rounded-lg"
                   />
                 </PictureFrame>
               </div>

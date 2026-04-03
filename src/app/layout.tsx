@@ -28,8 +28,15 @@ export default function RootLayout({
             Using min-h-0 on the immediate flex child prevents overflow from creating extra gaps. */}
           <main className="flex-1 flex flex-col min-h-0">{children}</main>
 
-          <footer className="w-full text-center py-4 text-pencil-gray/50 text-sm border-t border-pencil-gray/10">
-            © 2024 Dream Canvas Project. Pure Frontend Focus.
+          <footer
+            className="w-full text-center py-6 text-pencil-gray/70 text-sm 
+  bg-gradient-to-r from-stone-500 via-soft-clay to-stone-500 
+  border-t border-pencil-gray/20 shadow-inner"
+          >
+            <div className="flex flex-col items-center gap-2">
+              © {new Date().getFullYear()} Dream Canvas Project. Pure Frontend
+              Focus.
+            </div>
           </footer>
         </CityProvider>
       </body>

@@ -31,7 +31,7 @@ const GridItem: React.FC<GridItemProps> = ({
       `}
     >
       {/* Item Header - Uses the sketch font for emphasis */}
-      <div className="bg-soft-clay p-4 border-b border-pencil-gray/20">
+      <div className="p-4 border-b bg-gradient-to-tr from-soft-clay to-stone-500">
         <h3 className="font-sketch text-pencil-gray text-xl tracking-wider">
           {title}
         </h3>

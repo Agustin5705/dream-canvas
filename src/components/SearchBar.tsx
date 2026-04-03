@@ -38,17 +38,16 @@ export default function SearchBar() {
   }, [input]);
 
   const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
-  const trimmed = input.trim();
-  if (!trimmed) {
-    console.error("Empty city input");
-    return;
-  }
-  setCity(trimmed);
-  setInput("");
-  setSuggestions([]);
-};
-
+    e.preventDefault();
+    const trimmed = input.trim();
+    if (!trimmed) {
+      console.error("Empty city input");
+      return;
+    }
+    setCity(trimmed);
+    setInput("");
+    setSuggestions([]);
+  };
 
   return (
     <div className="relative">
@@ -69,7 +68,7 @@ export default function SearchBar() {
 
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded"
+          className="bg-gradient-to-r from-soft-clay to-stone-500 text-black px-6 py-2 rounded-lg shadow-md hover:scale-105 transition-transform"
         >
           Set City
         </button>
@@ -82,15 +81,14 @@ export default function SearchBar() {
               key={idx}
               className="p-2 hover:bg-gray-100 cursor-pointer"
               onClick={() => {
-  if (!s.name) {
-    console.error("Invalid suggestion");
-    return;
-  }
-  setCity(s.name);
-  setInput("");
-  setSuggestions([]);
-}}
-
+                if (!s.name) {
+                  console.error("Invalid suggestion");
+                  return;
+                }
+                setCity(s.name);
+                setInput("");
+                setSuggestions([]);
+              }}
             >
               {s.name}, {s.state ? `${s.state}, ` : ""}
               {s.country}

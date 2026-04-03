@@ -3,7 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { StarField } from "./stars/StarField";
+import { generateStars } from "./stars/generateStars";
+import Image from "next/image";
 
 // Define the navigation items for the site structure
 const navItems = [
@@ -14,7 +16,6 @@ const navItems = [
   { name: "Day In Day Out", href: "/dayindayout" },
   { name: "Rainy", href: "/rainy" },
   { name: "Snowed In", href: "/snowedin" },
-  { name: "Test", href: "/test" },
 ];
 
 /**
@@ -24,11 +25,10 @@ const navItems = [
 const Navigation: React.FC = () => {
   // Hook to determine the active route for styling
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="top-0 left-0 right-0 z-100 relative bg-paper-bg/95 backdrop-blur-sm shadow-sm bg-gradient-to-r from-paper-bg via-soft-clay to-paper-bg bg-[length:200%_100%] bg-no-repeat animate-slow-slide">
-      <div className="container mx-auto flex justify-between items-center py-4 px-6 max-w-7xl">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6 max-w-7xl bg-gradient-to-t from-soft-clay to-stone-600">
         {/* Site Title - Uses the custom sketch font aesthetic for the title */}
         <div className="flex">
           <Link
@@ -37,43 +37,16 @@ const Navigation: React.FC = () => {
           >
             Dream Canvas
           </Link>
-          <div
-            title="Inner Eye Motif Placeholder"
-            className="hidden sm:block text-pencil-gray/80 text-2xl font-sketch animate-breathe-slow cursor-pointer"
-          >
-            👁️‍🗨️
+          <div className="hidden sm:block relative w-8 h-8 ml-3 animate-breathe-slow cursor-pointer">
+            <Image
+              src="/assets/eye1.png"
+              alt="Dream Canvas Eye"
+              fill
+              className="object-contain opacity-80"
+            />
           </div>
         </div>
-        {/* Mobile Menu Button */}{" "}
-        <div className="sm:hidden">
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-2xl text-pencil-gray"
-          >
-            {menuOpen ? "✕" : "☰"}
-          </button>
-        </div>
-        {/* Mobile Menu Dropdown */}
-        {menuOpen && (
-          <div className="sm:hidden w-full bg-paper-bg/95 backdrop-blur-sm border-t border-pencil-gray/20 px-6 py-4 space-y-2">
-            {navItems.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={` block text-lg font-sans transition-colors duration-200 ${
-                    isActive
-                      ? "text-pencil-gray font-bold underline decoration-2 decoration-pencil-gray/50 underline-offset-4"
-                      : "text-pencil-gray/70 hover:text-pencil-gray"
-                  } `}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-          </div>
-        )}
+
         {/* Navigation Links */}
         <nav className="hidden sm:flex space-x-8">
           {navItems.map((item) => {
@@ -85,7 +58,7 @@ const Navigation: React.FC = () => {
                 key={item.name}
                 href={item.href}
                 className={`
-                  relative text-lg font-sketch transition-all duration-300 
+                  relative text-lg font-sketch transition-all duration-300 rounded-xl p-1 bg-gradient-to-br from-black/60 to-stone-700 shadow-xl text-soft-clay
                   ${
                     isActive
                       ? "text-accent-dark font-bold after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-accent-dark after:animate-wiggle"
@@ -94,6 +67,13 @@ const Navigation: React.FC = () => {
                 `}
               >
                 {item.name}
+
+                {/* Stars only on active */}
+                {isActive && (
+                  <div className="absolute inset-0 opacity-30 pointer-events-none rounded-xl overflow-hidden">
+                    <StarField stars={generateStars(20)} />
+                  </div>
+                )}
               </Link>
             );
           })}

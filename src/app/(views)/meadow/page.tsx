@@ -12,7 +12,7 @@ export default function MeadowPage() {
   return (
     <div className="flex flex-col items-center py-10 px-4">
       {/* Main Title Card */}
-      <WobblyCard className="max-w-4xl w-full mb-10 text-center">
+      <WobblyCard className="max-w-4xl w-full mb-10 text-center bg-gradient-to-tr from-soft-clay to-stone-500">
         <h1 className="font-sketch text-4xl text-accent-dark">
           The Dreamt Meadow Vignette
         </h1>
@@ -182,12 +182,12 @@ export default function MeadowPage() {
 
           {/* 2. PERSON: Foreground element */}
           <div
-            className="absolute animate-breathe-fast" // 👈 animation goes here
+            className="absolute animate-breathe-fast"
             style={{
               zIndex: 20,
               bottom: "5%",
               left: "40%",
-              transform: "translateX(-50%)", // positioning transform
+              transform: "translateX(-50%)",
             }}
           >
             <Image
