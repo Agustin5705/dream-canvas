@@ -29,11 +29,11 @@ export default function RootLayout({
           <main className="flex-1 flex flex-col min-h-0">{children}</main>
 
           <footer
-            className="w-full text-center py-6 text-pencil-gray/70 text-sm 
-  bg-gradient-to-r from-stone-500 via-soft-clay to-stone-500 
+            className="relative w-full text-center py-6 text-pencil-gray/70 text-sm 
+  bg-gradient-to-br from-soft-clay to-stone-600 
   border-t border-pencil-gray/20 shadow-inner"
           >
-            <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center gap-2 relative z-10 text-black">
               © {new Date().getFullYear()} Dream Canvas Project. Pure Frontend
               Focus.
             </div>

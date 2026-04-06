@@ -1,10 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-// We are intentionally not using Next.js Image for placeholders to ensure stability
-// import Image from 'next/image';
 
-// Custom Components - FIXED: Using absolute paths for robustness
 import WobblyCard from "@/components/WobblyCard";
 import WobblyButton from "@/components/WobblyButton";
 import GridItem from "@/components/GridItem";
@@ -12,10 +9,8 @@ import PictureFrame from "@/components/PictureFrame";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-// Data - FIXED: Using absolute paths for robustness
 import { MOCK_GALLERY_DATA, GalleryItem } from "@/data/gallery-data";
 
-// Define the available filter categories
 const categories = ["All", "sketch", "ui", "concept"] as const;
 type Category = (typeof categories)[number];
 

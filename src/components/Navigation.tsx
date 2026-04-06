@@ -27,7 +27,7 @@ const Navigation: React.FC = () => {
   const pathname = usePathname();
 
   return (
-    <header className="top-0 left-0 right-0 z-100 relative bg-paper-bg/95 backdrop-blur-sm shadow-sm bg-gradient-to-r from-paper-bg via-soft-clay to-paper-bg bg-[length:200%_100%] bg-no-repeat animate-slow-slide">
+    <header className="top-0 left-0 right-0 z-100 relative backdrop-blur-sm shadow-sm">
       <div className="container mx-auto flex justify-between items-center py-4 px-6 max-w-7xl bg-gradient-to-t from-soft-clay to-stone-600">
         {/* Site Title - Uses the custom sketch font aesthetic for the title */}
         <div className="flex">
@@ -37,9 +37,9 @@ const Navigation: React.FC = () => {
           >
             Dream Canvas
           </Link>
-          <div className="hidden sm:block relative w-8 h-8 ml-3 animate-breathe-slow cursor-pointer">
+          <div className="hidden sm:block relative w-8 h-8 ml-3 animate-breathe-slow">
             <Image
-              src="/assets/eye1.png"
+              src="/assets/moon.png"
               alt="Dream Canvas Eye"
               fill
               className="object-contain opacity-80"
