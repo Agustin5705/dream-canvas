@@ -73,13 +73,14 @@ export default function Home() {
               Dream Canvas
             </h1>
             <h2 className="font-sans text-xl sm:text-2xl text-pencil-gray/90 mb-8">
-              A living gallery of frontend artistry — hand-sketched assets
-              polished with AI, animated in real time.
+              A living gallery of frontend techniques built with hand-sketched
+              assets and animated in real time.
             </h2>
             <p className="font-sans text-lg text-pencil-gray/90 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Explore custom cards, buttons, and frames, each designed with
-              organic textures and whimsical motion. Every effect is a technical
-              showcase, optimized to run together in real time.
+              Explore custom cards, buttons, frames and effects designed with
+              organic textures and brought to life with subtle motion. Every
+              custom effect is a technical showcase, optimized to run together
+              in real time and offer a unique experience.
             </p>
           </div>
         </WobblyCard>
