@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     // The main container wrapper from layout.tsx centers content.
-    <div className="flex flex-col items-center py-10 px-4">
+    <div className="flex flex-col items-center py-10 px-4 gradient bg-gradient-to-br from-slate-100 to-slate-200">
       {/* 1. MAIN HERO SECTION */}
       <motion.div
         initial={{ opacity: 0, x: 100, scale: 0.6 }}
