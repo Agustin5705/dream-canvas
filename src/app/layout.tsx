@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Dream Canvas: Frontend Showcase",
   description: "An artistic design system built with Next.js and Tailwind CSS.",
+  icons: {
+    icon: "/moon.png",
+  },
 };
 
 export default function RootLayout({
