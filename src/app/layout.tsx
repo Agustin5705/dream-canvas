@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Dream Canvas: Frontend Showcase",
   description: "An artistic design system built with Next.js and Tailwind CSS.",
   icons: {
-    icon: "/moon.png",
+    icon: [{ url: "/moon.png", type: "image/png", sizes: "32x32" }],
   },
 };
 
